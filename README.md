@@ -1,1 +1,1 @@
-# Excel JS
+# Pure JavaScript Excel Application

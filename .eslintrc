@@ -1,0 +1,23 @@
+{
+  "extends": ["eslint:recommended", "google"],
+  "parser": "babel-eslint",
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "arrow-parens": 0,
+    "comma-dangle": 0,
+    "quotes": 0,
+    "require-jsdoc": 0,
+    "object-curly-spacing": [2, "always"],
+    "indent": [
+      2,
+      2,
+      {
+        "SwitchCase": 1
+      }
+    ]
+  }
+}
