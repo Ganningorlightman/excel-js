@@ -9,15 +9,29 @@
   overflow-x: auto;
   padding-bottom: 2px;
 
-  & .row {
+  .row {
     display: flex;
     height: $row-height;
     min-height: 20px;
     flex-direction: row;
   }
 
-  & .row-info {
+  .row-resize, .col-resize {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: $primary-color;
+    opacity: 0;
+    z-index: 1000;
+
+    &:hover {
+      opacity: 1 !important;
+    }
+  }
+
+  .row-info {
     display: flex;
+    position: relative;
     min-width: $info-cell-width;
     height: 100%;
     justify-content: center;
@@ -25,14 +39,24 @@
     background: #f8f9fa;
     border: 1px solid $border-color;
     border-top: none;
+
+    .row-resize {
+      height: 4px;
+      left: 0;
+
+      &:hover {
+        cursor: row-resize;
+      }
+    }
   }
 
-  & .row-data {
+  .row-data {
     display: flex;
   }
 
-  & .column {
+  .column {
     display: flex;
+    position: relative;
     width: $cell-width;
     min-width: 40px;
     height: 100%;
@@ -42,9 +66,18 @@
     border: 1px solid $border-color;
     border-top: 0;
     border-left: 0;
+
+    .col-resize {
+      width: 4px;
+      top: 0;
+
+      &:hover {
+        cursor: col-resize;
+      }
+    }
   }
 
-  & .cell {
+  .cell {
     width: $cell-width;
     min-width: 40px;
     height: 100%;
@@ -56,7 +89,7 @@
     border-top: 0;
     border-left: 0;
     &.selected {
-      outline: 2px solid #3c74ff;
+      outline: 2px solid $primary-color;
       border: none;
       z-index: 2;
     }
