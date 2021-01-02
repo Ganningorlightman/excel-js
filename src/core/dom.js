@@ -7,12 +7,34 @@ class Dom {
         return this.$el.dataset;
     }
 
+    id(parse) {
+        if (parse) {
+            const parsed = this.id().split(":");
+            return {
+                row: +parsed[0],
+                col: +parsed[1],
+            };
+        }
+        return this.data.id;
+    }
+
     html(html) {
         if (typeof html === "string") {
             this.$el.innerHTML = html;
             return this;
         }
         return this.$el.outerHTML.trim();
+    }
+
+    text(txt) {
+        if (typeof txt === "string") {
+            this.$el.textContent = txt;
+            return this;
+        }
+        if (this.$el.tagName.toLowerCase() === "input") {
+            return this.$el.value.trim();
+        }
+        return this.$el.textContent.trim();
     }
 
     clear() {
@@ -47,6 +69,15 @@ class Dom {
         return this.$el.getBoundingClientRect();
     }
 
+    focus() {
+        this.$el.focus();
+        return this;
+    }
+
+    find(selector) {
+        return $(this.$el.querySelector(selector));
+    }
+
     findAll(selector) {
         return this.$el.querySelectorAll(selector);
     }
@@ -55,6 +86,16 @@ class Dom {
         for (const [property, value] of Object.entries(styles)) {
             this.$el.style[property] = value;
         }
+    }
+
+    addClass(className) {
+        this.$el.classList.add(className);
+        return this;
+    }
+
+    removeClass(className) {
+        this.$el.classList.remove(className);
+        return this;
     }
 }
 
