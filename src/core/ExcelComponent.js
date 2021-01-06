@@ -4,7 +4,9 @@ export class ExcelComponent extends DomListener {
     constructor($root, options = {}) {
         super($root, options.listeners);
         this.name = options.name || "";
+        this.store = options.store;
         this.emitter = options.emitter;
+        this.subscribe = options.subscribe || [];
         this.unsubscribers = [];
 
         this.prepare();
@@ -14,6 +16,16 @@ export class ExcelComponent extends DomListener {
 
     toHTML() {
         return "";
+    }
+
+    $dispatch(action) {
+        this.store.dispatch(action);
+    }
+
+    storeChanged() {}
+
+    isWatching(key) {
+        return this.subscribe.includes(key);
     }
 
     $emit(event, ...args) {

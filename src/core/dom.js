@@ -27,7 +27,7 @@ class Dom {
     }
 
     text(txt) {
-        if (typeof txt === "string") {
+        if (typeof txt !== "undefined") {
             this.$el.textContent = txt;
             return this;
         }
@@ -82,10 +82,25 @@ class Dom {
         return this.$el.querySelectorAll(selector);
     }
 
+    attr(name, value) {
+        if (value) {
+            this.$el.setAttribute(name, value);
+            return this;
+        }
+        return this.$el.getAttribute(name);
+    }
+
     css(styles = {}) {
         for (const [property, value] of Object.entries(styles)) {
             this.$el.style[property] = value;
         }
+    }
+
+    getStyles(styles = []) {
+        return styles.reduce((res, s) => {
+            res[s] = this.$el.style[s];
+            return res;
+        }, {});
     }
 
     addClass(className) {
