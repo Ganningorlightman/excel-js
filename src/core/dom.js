@@ -26,6 +26,11 @@ class Dom {
         return this.$el.outerHTML.trim();
     }
 
+    clear() {
+        this.html("");
+        return this;
+    }
+
     text(txt) {
         if (typeof txt !== "undefined") {
             this.$el.textContent = txt;
@@ -35,10 +40,6 @@ class Dom {
             return this.$el.value.trim();
         }
         return this.$el.textContent.trim();
-    }
-
-    clear() {
-        this.html("");
     }
 
     on(eventType, callback) {
