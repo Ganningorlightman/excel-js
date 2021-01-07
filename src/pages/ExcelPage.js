@@ -6,7 +6,7 @@ import { Formula } from "@/components/formula/Formula";
 import { Table } from "@/components/table/Table";
 import { rootReducer } from "@/redux/rootReducer";
 import { normalizeInitialState } from "@/redux/initialState";
-import { createStore } from "core/createStore";
+import { createStore } from "core/store/createStore";
 import { storage, debounce } from "core/utils";
 
 function storageName(param) {
