@@ -23,7 +23,8 @@ module.exports = {
     entry: ["@babel/polyfill", "./index.js"],
     output: {
         filename: filename("js"),
-        path: path.resolve(__dirname, "build")
+        path: path.resolve(__dirname, "build"),
+        publicPath: ""
     },
     resolve: {
         modules: ["node_modules", path.resolve(__dirname, "src")],
