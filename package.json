@@ -2,7 +2,6 @@
   "name": "excel-js",
   "version": "0.0.1",
   "description": "Pure JavaScript Excel Application",
-  "main": "webpack.config.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/Ganningorlightman/excel-js.git"
