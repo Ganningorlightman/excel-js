@@ -37,9 +37,10 @@ module.exports = {
     devtool: isDev ? "source-map" : false,
     target: isDev ? "web" : "browserslist",
     devServer: {
-        port: 3636,
+        port: 4242,
         hot: true,
         open: true,
+        progress: true,
         writeToDisk: true,
         compress: true,
         historyApiFallback: true,
